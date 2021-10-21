@@ -8,6 +8,11 @@ import edu.unbosque.jdbctutorial.dtos.UserApp;
 import edu.unbosque.jdbctutorial.services.OwnersService;
 import edu.unbosque.jdbctutorial.services.PetsService;
 import edu.unbosque.jdbctutorial.services.UsersService;
+import edu.unbosque.jdbctutorial.services.OfficialService;
+import edu.unbosque.jdbctutorial.services.PetCaseService;
+import edu.unbosque.jdbctutorial.services.VetService;
+import edu.unbosque.jdbctutorial.services.VisitService;
+
 
 public class Main {
 
@@ -35,6 +40,18 @@ public class Main {
 
             UsersService usersService = new UsersService(conn);
             usersService.listUsers();
+
+            OfficialService officialService = new OfficialService(conn);
+            officialService.listUsers();
+
+            PetCaseService petCaseService = new PetCaseService(conn);
+            petCaseService.listUsers();
+
+            VetService vetService = new VetService(conn);
+            vetService.listUsers();
+
+            VisitService visitService = new VisitService(conn);
+            visitService.listUsers();
 
             PetsService petsService = new PetsService(conn);
             petsService.countBySpecies("dog");

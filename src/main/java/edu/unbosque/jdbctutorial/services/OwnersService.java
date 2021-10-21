@@ -1,7 +1,6 @@
 package edu.unbosque.jdbctutorial.services;
 
 import edu.unbosque.jdbctutorial.dtos.Owner;
-import edu.unbosque.jdbctutorial.dtos.UserApp;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -4,13 +4,13 @@ public class Vet {
 
     private String username;
     private String name;
-    private String date;
+    private String address;
     private String neighborhood;
 
-    public Vet(String username, String name, String date, String neighborhood) {
+    public Vet(String username, String name, String address, String neighborhood) {
         this.username = username;
         this.name = name;
-        this.date = date;
+        this.address = address;
         this.neighborhood = neighborhood;
     }
 
@@ -30,12 +30,12 @@ public class Vet {
         this.name = name;
     }
 
-    public String getDate() {
-        return date;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getNeighborhood() {
