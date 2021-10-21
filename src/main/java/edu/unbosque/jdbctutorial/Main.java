@@ -40,7 +40,7 @@ public class Main {
             petsService.countBySpecies("dog");
 
             OwnersService ownersService = new OwnersService(conn);
-            ownersService.updateOwner(new Owner(6698, null, "Pepito Perez"));
+            //ownersService.updateOwner(new Owner(6698, null, "Pepito Perez"));
 
             // Closing database connection
             conn.close();

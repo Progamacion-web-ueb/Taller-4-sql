@@ -29,12 +29,12 @@ public class OwnersService {
             // Executing a SQL query
             System.out.println("=> Updating owner...");
             stmt = conn.createStatement();
-            String sql = "UPDATE Owner SET fullName = '" + owner.getFullName() + "' WHERE idNumber = " + owner.getIdNumer();
+            String sql = "SELECT * FROM owner";
             System.out.println(sql);
-            int rowsUpdated = stmt.executeUpdate(sql);
+            //int rowsUpdated = stmt.executeUpdate(sql);
 
             // Printing results
-            System.out.println("Rows updated: " + rowsUpdated + "\n");
+           // System.out.println("Rows updated: " + rowsUpdated + "\n");
 
             // Closing resources
             stmt.close();
