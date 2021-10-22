@@ -66,4 +66,33 @@ public class VetService {
             }
         }
     }
+
+    public void countVet() {
+        Statement stmt = null;
+        int count = 0;
+        // Data structure to map results from database
+        try {
+            System.out.println("=> Listing vets...");
+            stmt = conn.createStatement();
+            String sql = "SELECT COUNT(*) FROM vet";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while(rs.next()) {
+                 count  = rs.getInt("count");
+            }
+            System.out.println("La cantidad de veterinarias registradas es: "+count);
+            rs.close();
+            stmt.close();
+
+        } catch(SQLException se) {
+            se.printStackTrace(); // Handling errors from database
+        } finally {
+            // Cleaning-up environment
+            try {
+                if(stmt != null) stmt.close();
+            } catch(SQLException se) {
+                se.printStackTrace();
+            }
+        }
+    }
 }

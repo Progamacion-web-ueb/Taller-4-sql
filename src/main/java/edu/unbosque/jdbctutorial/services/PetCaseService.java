@@ -27,8 +27,6 @@ public class PetCaseService {
 
         try {
 
-
-
             System.out.println("=> Listing petcase...");
             stmt = conn.createStatement();
             String sql = "SELECT * FROM petcase";
@@ -56,6 +54,39 @@ public class PetCaseService {
             }
 
             rs.close();
+            stmt.close();
+
+        } catch(SQLException se) {
+            se.printStackTrace(); // Handling errors from database
+        } finally {
+            // Cleaning-up environment
+            try {
+                if(stmt != null) stmt.close();
+            } catch(SQLException se) {
+                se.printStackTrace();
+            }
+        }
+    }
+
+    public void addCase(String case_id,String created_at,String type,String description,String pet_id) {
+        Statement stmt = null;
+
+        // Data structure to map results from database
+        List<PetCase> petCase = new ArrayList<PetCase>();
+
+        try {
+
+            // Executing a SQL query
+            System.out.println("=> Insert petcase...");
+            stmt = conn.createStatement();
+            String sql = "INSERT INTO petcase (case_id,created_at,type,description,pet_id) " +
+                    "VALUES ('"+case_id+"','"+created_at+"','"+type+"','"+description+"','"+pet_id+"')";
+            System.out.println(sql);
+            int rowsUpdated = stmt.executeUpdate(sql);
+
+            // Printing results
+            System.out.println("Rows updated: " + rowsUpdated + "\n");
+            // Closing resources
             stmt.close();
 
         } catch(SQLException se) {

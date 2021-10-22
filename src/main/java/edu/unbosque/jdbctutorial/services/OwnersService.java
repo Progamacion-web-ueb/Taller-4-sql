@@ -18,25 +18,41 @@ public class OwnersService {
         this.conn = conn;
     }
 
-    public void updateOwner(Owner owner) {
+        public void listUsers() {
+            Statement stmt = null;
 
-        // Objects for handling SQL statement
-        Statement stmt = null;
+            // Data structure to map results from database
+            List<Owner> owner = new ArrayList<Owner>();
 
-        try {
+            try {
 
-            // Executing a SQL query
-            System.out.println("=> Updating owner...");
-            stmt = conn.createStatement();
-            String sql = "SELECT * FROM owner";
-            System.out.println(sql);
-            //int rowsUpdated = stmt.executeUpdate(sql);
+                System.out.println("=> Listing Owner...");
+                stmt = conn.createStatement();
+                String sql = "SELECT * FROM owner";
+                ResultSet rs = stmt.executeQuery(sql);
 
-            // Printing results
-           // System.out.println("Rows updated: " + rowsUpdated + "\n");
+                while(rs.next()) {
+                    // Extracting row values by column name
+                    String username  = rs.getString("username");
+                    int person_id  = rs.getInt("person_id");
+                    String name  = rs.getString("name");
+                    String address  = rs.getString("address");
+                    String neighborhood  = rs.getString("neighborhood");
+                    // Creating a new UserApp class instance and adding it to the array list
+                    owner.add(new Owner( username, person_id,name,address, neighborhood));
+                }
 
-            // Closing resources
-            stmt.close();
+                System.out.println("UserName | Name");
+                for (Owner official : owner) {
+                    System.out.print(official.getUsername() + " | ");
+                    System.out.print(official.getPerson_id() + " | ");
+                    System.out.print(official.getName() + " | ");
+                    System.out.print(official.getAddress() + " | ");
+                    System.out.println(official.getNeighborhood());
+                }
+
+                rs.close();
+                stmt.close();
 
         } catch(SQLException se) {
             se.printStackTrace(); // Handling errors from database
