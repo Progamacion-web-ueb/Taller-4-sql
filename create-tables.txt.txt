@@ -1,0 +1,76 @@
+
+--Crea todas las tablas indicadas con su relacion correspondiente
+
+create table UserApp(
+userName varchar NOT NULL PRIMARY KEY,
+password varchar NOT null,
+email varchar NOT null,
+role varchar NOT null
+);
+
+create table Official(
+userName varchar NOT NULL ,
+name varchar NOT null,
+PRIMARY KEY (userName),
+FOREIGN KEY (userName) REFERENCES UserApp (userName)
+);
+
+create table Owner(
+userName varchar NOT NULL,
+person_id SERIAL  NOT NULL,
+name varchar NOT NULL,
+address varchar NOT NULL,
+neighborhood varchar NOT NULL,	
+PRIMARY KEY (userName),
+FOREIGN KEY (userName) REFERENCES UserApp (userName)
+
+);
+
+create table Vet(
+userName varchar NOT NULL,
+name varchar NOT NULL,
+address varchar NOT NULL,
+neighborhood varchar NOT NULL,	
+PRIMARY KEY (userName),
+FOREIGN KEY (userName) REFERENCES UserApp (userName)
+);
+
+
+create table Pet(
+pet_id varchar NOT NULL,
+microchip SERIAL  NOT NULL,
+name varchar NOT NULL,
+species varchar NOT NULL,
+race varchar NOT NULL,
+size varchar NOT NULL,
+sex varchar NOT NULL,
+owner_id varchar NOT NULL,
+picture varchar ,
+
+PRIMARY KEY (pet_id),
+FOREIGN KEY (owner_id) REFERENCES Owner (userName)
+);
+
+
+create table Visit(
+visit_id varchar NOT NULL,
+created_at varchar NOT NULL,
+type varchar NOT NULL,
+description varchar NOT NULL,
+vet_id varchar NOT NULL,	
+pet_id varchar NOT NULL,		
+PRIMARY KEY (visit_id),
+FOREIGN KEY (vet_id) REFERENCES Vet (userName),
+FOREIGN KEY (pet_id) REFERENCES Pet (pet_id)
+);
+
+create table PetCase(
+	case_id varchar NOT NULL,
+	created_at varchar NOT NULL,
+	type varchar NOT NULL,
+	description varchar NOT NULL,
+	pet_id varchar NOT NULL,
+	
+	PRIMARY KEY (case_id),
+	FOREIGN KEY (pet_id) REFERENCES Pet (pet_id)
+);

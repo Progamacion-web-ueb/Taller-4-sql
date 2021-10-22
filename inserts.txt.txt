@@ -1,0 +1,98 @@
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('paco@email.com','paco123','owner','paco123');
+
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('juan@email.com','juan123','owner','juan123');
+
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('sebatian@email.com','sebatian123','owner','sebatian123');
+
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('alcadia@email.com','pacoalcadia123','official','alcadia123');
+
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('alcadiaBogota@email.com','alcadiaBogota123','official','alcadiaBogota123');
+
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('alcaldiaEngativa@email.com','alcaldiaEngativa123','official','alcaldiaEngativa123');
+
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('vetanima@email.com','vetanima123','vet','vetanima123');
+
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('vetPatitas@email.com','vetPatitas123','vet','vetPatitas123');
+
+INSERT INTO userapp (email,password,role,username) 
+VALUES ('vetMejoresAmigos@email.com','vetMejoresAmigos123','vet','vetMejoresAmigos123');
+
+
+
+INSERT INTO official (name, username) 
+VALUES ('alcadiaFrancisco','alcadia123');
+
+INSERT INTO official (name, username) 
+VALUES ('alcadiaLorenzo','alcadiaBogota123');
+
+INSERT INTO official (name, username) 
+VALUES ('alcadiaFabio','alcaldiaEngativa123');
+
+select * from official
+
+INSERT INTO owner (address, name,neighborhood,username) 
+VALUES ('calle 100 # 23 34','paco jones','puente Aranda','paco123');
+
+INSERT INTO owner (address, name,neighborhood,username) 
+VALUES ('calle 234 # 56 78','juan sivel','kenedy','juan123');
+
+INSERT INTO owner (address, name,neighborhood,username) 
+VALUES ('calle 6 # 45 34','sebastian fenando','engativa','sebatian123');
+
+
+
+
+INSERT INTO vet (address, name,neighborhood,username) 
+VALUES ('calle 234 # 22 89','Veterinaria Anima','puentaAranda','vetanima123');
+
+INSERT INTO vet (address, name,neighborhood,username) 
+VALUES ('calle 45 # 34 34','veterinaria Patitas','kenedy','vetPatitas123');
+
+INSERT INTO vet (address, name,neighborhood,username)  
+VALUES ('calle 78 # 45 86','veterinaria Mejores Amigos','engativa','vetMejoresAmigos123');
+
+
+
+
+INSERT INTO pet (name,owner_id,pet_id,picture,race,sex,size,species) 
+VALUES ('toby','paco123','topa1','toby.png','pitbull','macho','meidano','dog');
+
+INSERT INTO pet (name,owner_id,pet_id,picture,race,sex,size,species) 
+VALUES ('zeus','juan123','juze2','zeus.png','doberman','hembra','grande','cat');
+
+INSERT INTO pet (name,owner_id,pet_id,picture,race,sex,size,species) 
+VALUES ('lulu','sebatian123','selu3','lulu.png','pastoAleman','macho','grande','dog');
+
+
+
+
+INSERT INTO visit (visit_id,created_at,type,description,vet_id,pet_id) 
+VALUES ('v1','10/12/2020','vacunación','vacuna de los 10 años','vetanima123','topa1');
+
+INSERT INTO visit (visit_id,created_at,type,description,vet_id,pet_id) 
+VALUES ('v2','01/08/2021','urgencia','carro aplato la pata del gato','vetPatitas123','juze2');
+
+INSERT INTO visit (visit_id,created_at,type,description,vet_id,pet_id) 
+VALUES ('v3','05/05/2021','control','control trimestral','vetMejoresAmigos123','selu3');
+
+
+
+
+
+INSERT INTO petcase (case_id,created_at,type,description,pet_id) 
+VALUES ('caso123','12/12/2021','robo','Un dia dessaparecio de la casa','topa1');
+
+INSERT INTO petcase (case_id,created_at,type,description,pet_id) 
+VALUES ('caso334','/10/10/2020','perdida','se fue corriendo por la calle','juze2');
+
+INSERT INTO petcase (case_id,created_at,type,description,pet_id) 
+VALUES ('caso554','20/05/2121','fallecimiento','murio entre terrible sufrimiento','selu3');
+
