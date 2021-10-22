@@ -36,7 +36,6 @@ VALUES ('alcadiaLorenzo','alcadiaBogota123');
 INSERT INTO official (name, username) 
 VALUES ('alcadiaFabio','alcaldiaEngativa123');
 
-select * from official
 
 INSERT INTO owner (address, name,neighborhood,username) 
 VALUES ('calle 100 # 23 34','paco jones','puente Aranda','paco123');
